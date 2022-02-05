@@ -24,8 +24,8 @@ msg.set_content("testing")
 
 
 server = smtplib.SMTP("smtp.gmail.com", 587)
-server.startls()
-server.login("valentinesphotos879@gmail@gmail.com", "Picsforvalentines$$(2")
+server.starttls()
+server.login("valentinesphotos879@gmail.com", "Picsforvalentines$$(2")
 
 ## yeah but we"ll need to install it too.
 
@@ -36,11 +36,3 @@ msg.add_attachment(pic, maintype = "image",subtype=imghdr.what(None, pic))
 
 server.send_message(msg)
 server.quit()
-
-
-
-"""
-file_pointer = open("cat_pic.png","rb")
-pic = file_pointer.read()
-msg.add_attachment(img_data, maintype = "image"subtype=imghdr.what(None, pic))
-"""
