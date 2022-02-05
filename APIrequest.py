@@ -14,4 +14,4 @@ picture = result['webpurl']
 filename ="cat_pic.png"
 urllib.request.urlretrieve(picture, filename)
 image = Image.open(filename)
-image.show()
+#image.show()
