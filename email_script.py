@@ -7,32 +7,36 @@
 #https://docs.python.org/3/library/email.examples.html
 #im googling everything lol
 ## haha at this point me too
-import imghdr
-import email
-import smtplib
 
-msg = email.message.EmailMessage()
+def email_loop():
+    import imghdr
+    import email
+    import smtplib
 
-msg["Subject"] = "mer christmas"
-msg["From"] = "valentinesphotos879@gmail"
-msg["To"] = "ttourne1@binghamton.edu"## Theo"s email for testing
+    msg = email.message.EmailMessage()
 
-msg.set_content("testing")
+    msg["Subject"] = "Love You!"
+    msg["From"] = "valentinesphotos879@gmail"
+    msg["To"] = "ttourne1@binghamton.edu"## Theo"s email for testing
 
-#add image attachment
-#msg.add_attachment(file_data, maintype="image", subtype=file_type, filename=file_name)
+    msg.set_content("This cat isn't nearly as adorable as you are <3")
+
+    #add image attachment
+    #msg.add_attachment(file_data, maintype="image", subtype=file_type, filename=file_name)
 
 
-server = smtplib.SMTP("smtp.gmail.com", 587)
-server.starttls()
-server.login("valentinesphotos879@gmail.com", "Picsforvalentines$$(2")
+    server = smtplib.SMTP("smtp.gmail.com", 587)
+    server.starttls()
+    server.login("valentinesphotos879@gmail.com", "Picsforvalentines$$(2")
 
-## yeah but we"ll need to install it too.
+    ## yeah but we"ll need to install it too.
 
-## attach image to file
-file_pointer = open("cat_pic.png","rb")
-pic = file_pointer.read()
-msg.add_attachment(pic, maintype = "image",subtype=imghdr.what(None, pic))
+    ## attach image to file
+    file_pointer = open("cat_pic.png","rb")
+    pic = file_pointer.read()
+    msg.add_attachment(pic, maintype = "image",subtype=imghdr.what(None, pic))
 
-server.send_message(msg)
-server.quit()
+    server.send_message(msg)
+    server.quit()
+
+#email_loop()

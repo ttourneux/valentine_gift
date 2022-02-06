@@ -1,17 +1,21 @@
-import requests
-from PIL import Image
+def API_loop():
 
-import urllib.request
-import json
+    import requests
+    from PIL import Image
 
-url = "https://thatcopy.pw/catapi/rest/"
-print(url)
+    import urllib.request
+    import json
 
-response = requests.get(url)
-result = response.json()
-picture = result['webpurl']
-#######
-filename ="cat_pic.png"
-urllib.request.urlretrieve(picture, filename)
-image = Image.open(filename)
-#image.show()
+    url = "https://thatcopy.pw/catapi/rest/"
+    print(url)
+
+    response = requests.get(url)
+    result = response.json()
+    picture = result['webpurl']
+    #######
+    filename ="cat_pic.png"
+    urllib.request.urlretrieve(picture, filename)
+    image = Image.open(filename)
+    #image.show()
+
+#API_loop()
